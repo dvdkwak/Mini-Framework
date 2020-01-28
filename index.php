@@ -1,23 +1,29 @@
 <?php
-  // Including the main configuration file
-  include_once "system/config/config.php";
-  $route = new Route;
 
-  // ____________________________ THE ROUTES _________________________________
+// Including the main configuration file
+include_once "system/config/config.php";
+$route = new Route;
 
-  $route->add("home", "test.view.html");
+// ____________________________ THE ROUTES _________________________________
 
-  // _________________________________________________________________________
+    /**
+     * In this area you add extra routes to your application, these routes look like:
+     * $route->add('uri', 'view', 'controller');
+     */
 
-  // Here the page will be generated
-  $page = $route->createPage(URL_PARAMS, URL);
+    $route->add();
 
-  // including the right controller if set
-  if(isset($page['controller']) && !empty($page['controller']))
-  include_once ROOT."controllers/".$page['controller'];
+// _________________________________________________________________________
 
-  // including the right view and showing it if set
-  if(isset($page['view']) && !empty($page['view'])){
-    include_once ROOT."views/DOM/".$page['view'];
-  }
-?>
+// Here the page will be generated
+$page = $route->createPage(URL_PARAMS, URL);
+
+// including the right controller if set
+if(isset($page['controller']) && !empty($page['controller'])) {
+    include_once ROOT . "controllers/" . $page['controller'];
+}
+
+// including the right view and showing it if set
+if(isset($page['view']) && !empty($page['view'])){
+    include_once ROOT."views/".$page['view'];
+}
