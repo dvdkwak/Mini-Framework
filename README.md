@@ -11,9 +11,9 @@ Routes are defined as follows:
 
 The path is a string telling the system on which uri the conten should be loaded, the view is the main html (or php) file to be loaded as "view", and the controller is the main file executing all the commands given in it.
 
-###The pacakge has 3 main folders you want to put your code (php) in:
-####1.views: In this folder you put the layouts of your application.
-####2. models: In this folder you put the models (or classes) of your application.
-####3. controllers: In this folder you put the controllers (processing files) of your application.
+**The package has 3 main folders you want to put your code (php) in:**
+1. **views:** In this folder you put the layouts of your application.
+2. **models:** In this folder you put the models (or classes) of your application.
+3. **controllers:** In this folder you put the controllers (processing files) of your application.
 
 
