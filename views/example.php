@@ -5,7 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="icon"
+          type="image/png"
+          href="assets/favicon.png">
+    <title>Rain Drop</title>
     <style>
         body {
             margin: 0;
@@ -14,6 +17,7 @@
         }
         .container {
             width: 60%;
+            min-width: 600px;
         }
         .rainDrop {
             display: block;
@@ -49,13 +53,33 @@
             top: 0;
             bottom: 0;
             min-width: 300px;
+            max-width: 600px;
             width: 40%;
             background: white;
         }
         sidebar.right {
             right: 0;
-            padding: 5px 10px;
+            padding: 5px 15px;
             overflow-y: scroll;
+        }
+        p.codeblock {
+            display: block;
+            background: #343a43;
+            border-radius: 10px;
+            color: white;
+            padding: 10px 15px;
+        }
+        span.purple {
+            color: #a290ff;
+        }
+        span.yellow {
+            color: #deff4f;
+        }
+        span.green {
+            color: #288929;
+        }
+        h3 {
+            margin-top: 50px;
         }
         @keyframes bounceDrop {
             0% {
@@ -92,9 +116,31 @@
 </div>
 <!-- a bar with some rain on the right -->
 <sidebar class="right">
-    <h1>How does it work?</h1>
+    <h1>Short Refference:</h1>
+    <h3>1. Routes:</h3>
     <p>
-        Beneath here will be some explenation on how to use this framework.
+        A route is a claimed uri-path within the framework. Routes are built by a uri, view and a controller, and looks like this:
+    </p>
+    <p class="codeblock">
+        <span class="purple">$route</span>-><span class="yellow">add</span>(<span class="green">'uri'</span>, <span class="green">'view'</span>, <span class="green">'controller'</span>);
+    </p>
+    <p>
+        Routes are defined in <b>index.php</b>, which should never be removed.
+    </p>
+    <h3>2. Views:</h3>
+    <p>
+        Views are the templates of your application. Views are stored in the "views" folder and are used to display content.
+        <br>
+        <br>
+        <i><b>Tip:</b> You can use views as php files to include "template parts" by using the php <b>include_once</b> function!</i>
+    </p>
+    <h3>3. Controllers:</h3>
+    <p>
+        Controllers are the main files in which the processing takes place. In here you initialize all of your php code and functionality.
+    </p>
+    <h3>4. System:</h3>
+    <p>
+        System is a folder in which the framework itself lives. you should try to <b>never change something</b> there unless you know what you are doing!
     </p>
 </sidebar>
 </body>
