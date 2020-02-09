@@ -25,6 +25,7 @@
             height: auto;
             width: 40%;
             max-width: 300px;
+            animation: bounceDrop ease-in-out infinite 3000ms;
         }
         .rainDropShadow{
             height: 50px;
@@ -33,7 +34,7 @@
             background: transparent;
             border-radius: 100%;
             box-shadow: 0 150px 50px 10px rgba(0, 0, 0, 0.6);
-            animation: bounceDrop ease-in-out infinite 3000ms;
+            animation: shadowResize ease-in-out infinite 3000ms;
         }
         .title {
             font-family: Helvetica;
@@ -81,18 +82,29 @@
         h3 {
             margin-top: 50px;
         }
-        @keyframes bounceDrop {
+        @keyframes shadowResize {
             0% {
-                margin: -100px auto 0 auto;
                 box-shadow: 0 150px 20px 20px rgba(0, 0, 150, 0.4);
+                margin-top: -150px;
             }
             50% {
-                margin: -50px auto 0 auto;
                 box-shadow: 0 150px 40px 10px rgba(0, 0, 150, 0.4);
+                margin-top: -100px;
             }
             100% {
-                margin: -100px auto 0 auto;
                 box-shadow: 0 150px 20px 20px rgba(0, 0, 150, 0.4);
+                margin-top: -150px;
+            }
+        }
+        @keyframes bounceDrop {
+            0% {
+                padding-top: 50px;
+            }
+            50% {
+                padding-top: 0;
+            }
+            100% {
+                padding-top: 50px;
             }
         }
     </style>
