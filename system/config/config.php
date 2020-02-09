@@ -22,8 +22,10 @@ require "config.php";
 
 // Defining the root folder
 $root = $_SERVER['DOCUMENT_ROOT'];
-if(!empty(DIRECTORY)) {
+if(defined(DIRECTORY) && !empty(DIRECTORY) && DIRECTORY !== "/") {
     $root .= "/" . DIRECTORY . "/";
+} else {
+    $root .= "/";
 }
 define("ROOT", $root);
 

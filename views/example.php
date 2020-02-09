@@ -1,3 +1,15 @@
+<?php
+
+/**
+ * This file is just a demonstration and startup file for you to show how the framework works in the most simple way.
+ *
+ * YOU CAN REMOVE THIS FILE ENTIRELY
+ *
+ * ** NOTICE: **
+ * When you add a new new route without specifying the view, the system will look for a file called example.php
+ */
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
