@@ -3,10 +3,7 @@
 /**
  * This file is just a demonstration and startup file for you to show how the framework works in the most simple way.
  *
- * YOU CAN REMOVE THIS FILE ENTIRELY
- *
- * ** NOTICE: **
- * When you add a new new route without specifying the view, the system will look for a file called example.php
+ *  THIS IS THE DEFAULT VIEW SHOWN WHEN NO ROUTES ARE SET OVER THE HOME
  */
 
 ?>
@@ -19,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"
           type="image/png"
-          href="assets/favicon.png">
+          href="../../assets/favicon.png">
     <title>Rain Drop</title>
     <style>
         body {

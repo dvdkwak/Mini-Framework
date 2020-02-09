@@ -11,7 +11,8 @@ $route = new Route;
      * $route->add('uri', 'view', 'controller');
      */
 
-    $route->add();
+    // Start editing here! :D
+    // $route->add('example', 'example.php');
 
 // _________________________________________________________________________
 

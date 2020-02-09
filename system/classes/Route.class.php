@@ -9,7 +9,12 @@ class Route
      * PROPERTIES
      */
 
-    private $routes = []; // This is the "route container" -> this keeps track of all routes
+    private $routes = [
+        array( // setting a default route in to the system
+            'route' => 'home',
+            'view' => '../system/defaults/example.php',
+        )
+    ]; // This is the "route container" -> this keeps track of all routes
 
 
     /**
