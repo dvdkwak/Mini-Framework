@@ -18,7 +18,7 @@ define("URL_PARAMS", $urlParams);
 
 // including the settings from the local config file
 // path is directly to config because this file is included to the index as well
-require "config.php";
+include_once "config.php";
 
 // Defining the root folder
 $root = $_SERVER['DOCUMENT_ROOT'];
@@ -37,4 +37,5 @@ if(DEBUGMODE) {
 }
 
 // Basic includes and running autoloader
-include_once ROOT."system/functions/autoloader.php";
+include_once ROOT . "system/functions/asset.php";
+include_once ROOT . "system/functions/autoloader.php";

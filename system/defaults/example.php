@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"
           type="image/png"
-          href="../../assets/favicon.png">
+          href="<?= asset("../system/defaults/favicon.png"); ?>">
     <title>Rain Drop</title>
     <style>
         body {
