@@ -12,7 +12,8 @@ $route = new Route;
      */
 
     // Start editing here! :D
-    $route->add('home', 'example.php');
+    // $route->add('home', 'example.php');
+    // Uncomment the above line! ;D ^
 
 // _________________________________________________________________________
 
