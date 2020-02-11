@@ -146,7 +146,7 @@
         <span class="purple">$route</span>-><span class="yellow">add</span>(<span class="green">'uri'</span>, <span class="green">'view'</span>, <span class="green">'controller'</span>);
     </p>
     <p>
-        Routes are defined in <b>index.php</b>, which should never be removed.
+        Routes are defined in <b>routes.php</b>, which should never be removed.
     </p>
     <h3>2. Views:</h3>
     <p>

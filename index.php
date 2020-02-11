@@ -1,21 +1,15 @@
 <?php
 
+/**
+ * SYSTEM FILE, DONT TOUCH THIS!
+ */
+
 // Including the main configuration file
 include_once "system/config/config.php";
 $route = new Route;
 
-// ____________________________ THE ROUTES _________________________________
-
-    /**
-     * In this area you add extra routes to your application, these routes look like:
-     * $route->add('uri', 'view', 'controller');
-     */
-
-    // Start editing here! :D
-    // $route->add('home', 'example.php');
-    // Uncomment the above line! ;D ^
-
-// _________________________________________________________________________
+// including all routes
+include_once ROOT . "routes.php";
 
 // Here the page will be generated
 $page = $route->createPage(URL_PARAMS, URL);
