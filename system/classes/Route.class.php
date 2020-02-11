@@ -9,12 +9,7 @@ class Route
      * PROPERTIES
      */
 
-    private $routes = [
-        array( // setting a default route in to the system
-            'route' => 'home',
-            'view' => '../system/defaults/example.php',
-        )
-    ]; // This is the "route container" -> this keeps track of all routes
+    private $routes = []; // This is the "route container" -> this keeps track of all routes
 
 
     /**
@@ -22,18 +17,54 @@ class Route
      */
 
     /**
+     * Route constructor. This will search for a default page and else use the standard default page from the system folder
+     */
+    public function __construct()
+    {
+        $this->add();
+    }
+
+    /**
      * Adding a route to the routes container which is used to create a page
      * @param string $path Used to define the uri which should be called
      * @param string $view Used to define the view to render
      * @param null $controller Used to define which controller should be used
      */
-    public function add($path = "home", $view = "example.php", $controller = NULL)
+    public function add($path = "home", $view = "default.php", $controller = NULL)
     {
-        $this->routes[] = array(
-            "route" => $path,
-            "view" => $view,
-            "controller" => $controller
-        );
+        // if the view is 'default.php' check wether to use the system default page or the user-made one
+        if($view === "default.php") {
+            if(!file_exists(ROOT . 'views/default.php')) {
+                $view = '../system/defaults/default.php';
+            }
+        }
+        // if there are no routes, the existence check is by default false
+        if(empty($this->routes)) {
+            $existsCheck = false;
+        }
+        // foreach existing route, check if the given path has already been defined
+        foreach($this->routes AS $key => $route) {
+            if($route['route'] === $path) {
+                // if it is, then we set the check to the value of the index of the route
+                $existsCheck = $key;
+            } else {
+                $existsCheck = false;
+            }
+        }
+        // if there is a found route, we overwrite it on the existence key
+        if($existsCheck !== false) {
+            $this->routes[$existsCheck] = array(
+                "route" => $path,
+                "view" => $view,
+                "controller" => $controller
+            );
+        } else {
+            $this->routes[] = array(
+                "route" => $path,
+                "view" => $view,
+                "controller" => $controller
+            );
+        }
     }
 
 
@@ -48,7 +79,7 @@ class Route
         foreach($this->routes AS $key => $route){ // Foreach route
             $uri_path = explode("/", $route['route']); // create an array with all route params
             if(count($uri_path) === count($urlParams)){ // When the user given route and the existing route have the same amount of items
-                $values = array(); // Route url where the variablese are replaced with the given ones
+                $values = array(); // Route url where the variables are replaced with the given ones
                 foreach($uri_path AS $keyUri => $val){ // Replace variables in the url
                     if(preg_match('/{([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)}/', $val)){
                         $values[] = $urlParams[$keyUri]; // Set the variable to the user input
