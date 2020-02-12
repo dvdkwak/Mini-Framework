@@ -47,7 +47,7 @@
             // array containing all raindrops
             rain = [];
             // adding a few raindrops to the screen
-            for(i = 0; i < 200; i++) {
+            for(i = 0; i < 100; i++) {
                 // creating a drop with a ranom size at a random location on top
                 rain.push(new RainDrop(5 + Math.floor(Math.random() * windowWidth)));
                 // setting the falling speed at random
