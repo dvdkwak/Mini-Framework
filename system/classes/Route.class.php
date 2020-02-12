@@ -97,11 +97,18 @@ class Route
                 }
             }
         }
-        // When no key is set give the standard 404 error
-        $data = array( // Set the data to the 404
-            'route' => '404',
-            'view' => '404.php',
-        );
+        // When no key is set give the standard 404 error, but first we need to check if there is a user-made one (so in the views folder a 404.php)
+        if(file_exists(ROOT . 'views/404.php')) {
+            $data = array(
+                'route' => '404',
+                'view' => '404.php'
+            );
+        } else {
+            $data = array( // Set the data to the 404
+                'route' => '404',
+                'view' => '../system/defaults/404.php',
+            );
+        }
         return $data;
     }
 

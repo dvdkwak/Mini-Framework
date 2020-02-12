@@ -8,6 +8,6 @@
     <title>Something went wrong...</title>
 </head>
 <body>
-    <h1>I am the 404 page!</h1>
+    <h1>I am the system 404 page!</h1>
 </body>
 </html>
