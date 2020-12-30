@@ -1,4 +1,5 @@
-# Mini-Framework by David 
+# Mini-Framework by David
+### ***V 1.0.0***
 Hey there! awesome you have some interest in my framework little project!
 This framework was originally built in order to learn something about the mvc method which later grew into a package I use to create small php webapps.
 
