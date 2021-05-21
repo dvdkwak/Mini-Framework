@@ -26,12 +26,7 @@ define("DEBUGMODE", true);';
             fclose($configFile);
             echo "<script>window.location.href='" . $_POST['rootFolder'] . "'</script>"; // redirecting to the same page
         }
-        echo "<h1>The config does not exist!</h1>
-            <hr>
-            <form method='POST'>
-                <input type='text' name='rootFolder' placeholder='root folder' />
-                <input type='submit' name='saveConfig' value='install' />
-            </form>";
+        include_once $_SERVER['DOCUMENT_ROOT'] . "/system/defaults/createConfig.php";
         die(); // simple die to stop the rest of the code :3
     } // end of config existence check
 } // end of checkConfig
