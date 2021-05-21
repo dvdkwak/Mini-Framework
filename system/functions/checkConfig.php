@@ -7,6 +7,10 @@ function checkConfig() {
     if(!file_exists($_SERVER['DOCUMENT_ROOT'] . "/config.php")) {
         // if the root folder form has been submitted, create the config
         if(isset($_POST['saveConfig'])) {
+            // if 'home' was given, set to '/'
+            if($_POST['rootFolder'] == "home") {
+                $_POST['rootFolder'] = "/";
+            }
             $configFile = fopen($_SERVER['DOCUMENT_ROOT'] . "/config.php", "w");
             $config = '<?php
 
@@ -20,7 +24,7 @@ define("ASSETS_DIR", "assets");
 define("DEBUGMODE", true);';
             fwrite($configFile, $config);
             fclose($configFile);
-            echo "<script>window.location.href='/'</script>"; // redirecting to the same page
+            echo "<script>window.location.href='" . $_POST['rootFolder'] . "'</script>"; // redirecting to the same page
         }
         echo "<h1>The config does not exist!</h1>
             <hr>
