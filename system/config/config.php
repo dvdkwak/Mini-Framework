@@ -18,6 +18,8 @@ define("URL_PARAMS", $urlParams);
 
 // including the settings from the local config file
 // path is directly to config because this file is included to the index as well
+include_once $_SERVER['DOCUMENT_ROOT'] . "/system/functions/checkConfig.php";
+checkConfig();
 include_once "config.php";
 
 // Defining the root folder
