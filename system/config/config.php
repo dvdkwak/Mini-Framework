@@ -16,10 +16,12 @@ define("URL", $url);
 // Defining the global variable $urlParams
 define("URL_PARAMS", $urlParams);
 
-// including the settings from the local config file
-// path is directly to config because this file is included to the index as well
+// calling the checkConfig function to check the config
 include_once $_SERVER['DOCUMENT_ROOT'] . "/system/functions/checkConfig.php";
 checkConfig();
+
+// including the settings from the local config file
+// path is directly to config because this file is included to the index as well
 include_once "config.php";
 
 // Defining the root folder
