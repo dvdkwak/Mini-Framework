@@ -17,7 +17,7 @@ define("URL", $url);
 define("URL_PARAMS", $urlParams);
 
 // calling the checkConfig function to check the config
-include_once $_SERVER['DOCUMENT_ROOT'] . "/system/functions/checkConfig.php";
+include_once "system/functions/checkConfig.php";
 checkConfig();
 
 // including the settings from the local config file

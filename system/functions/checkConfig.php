@@ -4,14 +4,14 @@
  * This method checks wether the settings file exists, if not, this will put out a form to create it.
  */
 function checkConfig() {
-    if(!file_exists($_SERVER['DOCUMENT_ROOT'] . "/config.php")) {
+    if(!file_exists("config.php")) {
         // if the root folder form has been submitted, create the config
         if(isset($_POST['saveConfig'])) {
             // if 'home' was given, set to '/'
             if($_POST['rootFolder'] == "home") {
                 $_POST['rootFolder'] = "/";
             }
-            $configFile = fopen($_SERVER['DOCUMENT_ROOT'] . "/config.php", "w");
+            $configFile = fopen("config.php", "w");
             $config = '<?php
 
 // if the application is within a sub-folder call it here, you will be able to use "ROOT" for further references
@@ -26,7 +26,7 @@ define("DEBUGMODE", true);';
             fclose($configFile);
             echo "<script>window.location.href='" . $_POST['rootFolder'] . "'</script>"; // redirecting to the same page
         }
-        include_once $_SERVER['DOCUMENT_ROOT'] . "/system/defaults/createConfig.php";
+        include_once "system/defaults/createConfig.php";
         die(); // simple die to stop the rest of the code :3
     } // end of config existence check
 } // end of checkConfig
