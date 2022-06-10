@@ -22,3 +22,6 @@ The path is a string telling the system on which uri the content should be loade
 ## Planned and notes
 - Page to help set-up the mini-framework
   - You start the installation with errors, on which actually should be a help page to help setup the config file
+
+## New upcomming version V 2.0.0
+I have planned to rebuild the system of this framwork to a more Object Oriented style.!
