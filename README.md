@@ -23,5 +23,10 @@ The path is a string telling the system on which uri the content should be loade
 - Page to help set-up the mini-framework
   - You start the installation with errors, on which actually should be a help page to help setup the config file
 
-## New upcomming version V 2.0.0
-I have planned to rebuild the system of this framwork to a more Object Oriented style.!
+## New upcomming version ***V 2.0.0***
+I have planned to rebuild the system of this framwork to a more Object Oriented style.
+
+Planned:
+1. Implementing Singleton pattern to the Routes object.
+2. Redefining routes, they only need a path and an entrypoint to a controller which exists out of a Classname and Action name.
+3. Renamed the 'createPage' method to 'response' since this name represents more correctly the purpose of the method.
