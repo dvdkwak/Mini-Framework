@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"
           type="image/png"
-          href="<?= asset("../system/defaults/favicon.png"); ?>">
+          href="<?= Raindrop::asset("../system/defaults/favicon.png"); ?>">
     <title>Splash!</title>
     <style>
         body {
@@ -60,6 +60,15 @@
             color: white;
             font-size: 42px;
             text-align: center;
+        }
+        .error_message {
+            font-family: Helvetica;
+            color: white;
+            font-size: 32px;
+            font-weight: normal;
+            text-align: center;
+            background: #0b429c;
+            padding: 20px 0;
         }
         sidebar {
             position: fixed;
@@ -124,6 +133,9 @@
 <body>
 <div class="container">
     <h1 class="title">Oh Splash!</h1>
+    <?php if(isset($data)) : ?>
+    <?= $data ? "<h2 class='error_message'>$data</h2>" : "" ?>
+    <?php endif; ?>
     <h2 class="subtitle">We could not find this page...</h2>
     <!--logo of the package-->
     <!-- Ik ben er nog niet achter waarom, maar een verhouding van 3:4 schijnt te werken -->
@@ -138,100 +150,5 @@
     <!-- Beneath the svg a shadow to make it look like the drop is going up and down -->
     <div class="rainDropShadow"></div>
 </div>
-
-<script src="<?= asset('/lib/p5.min.js') ?>"></script>
-<script>
-    function setup() {
-        // creating the canvas
-        createCanvas(windowWidth, windowHeight);
-        // array containing all raindrops
-        rain = [];
-        // adding a few raindrops to the screen
-        for(i = 0; i < 100; i++) {
-            // creating a drop with a ranom size at a random location on top
-            rain.push(new RainDrop(5 + Math.floor(Math.random() * windowWidth)));
-            // setting the falling speed at random
-            let number = Math.floor(Math.random()*10);
-            rain[i].setGravity((8 + number));
-            // setting the size random between 3 and 10
-            rain[i].setSize(3 + number);
-        }
-    }
-    function draw() {
-        // repainting the screen to black
-        background(0, 191, 255);
-        // updating and drawing all raindrops
-        rain.map(function(drop) {
-            // when a drop touches the ground and it is not melting yet
-            if(drop.isTouchingGround) {
-                drop.startMelting();
-                // if not already created a new one, create a new drop
-                if(!drop.createdNewOne) {
-                    let newDrop = new RainDrop(5 + Math.floor(Math.random() * windowWidth));
-                    // setting the falling speed at random
-                    let number = Math.floor(Math.random()*10);
-                    newDrop.setGravity((8 + number));
-                    // setting the size random between 3 and 10
-                    newDrop.setSize(3 + number);
-                    rain.push(newDrop);
-                    drop.createdNewOne = true;
-                }
-            }
-            // if a drop has melted, remove it from the array
-            if(drop.isMelted) {
-                let index = rain.indexOf(drop);
-                rain.splice(index, 1);
-            }
-            // putting the drop on screen
-            drop.draw();
-        });
-    }
-    class RainDrop {
-        isTouchingGround = false;
-        g = 5;
-        isMelting = false;
-        isMelted = false;
-        meltSpeed = 3000;
-        // setting the x, y and size value of the object
-        constructor(x = 5, y = 0, size = 10) {
-            this.x = x;
-            this.y = y;
-            this.size = size;
-        }
-        // putting the flake on screen and applying gravity
-        draw() {
-            fill(255, 255, 255);
-            ellipse(this.x, this.y, this.size);
-            this.applyGravity();
-        }
-        // letting the object fall down until the ground is touched
-        applyGravity() {
-            if(!this.isTouchingGround) {
-                this.y += this.g;
-                if(this.y >= windowHeight - this.size/2) {
-                    this.isTouchingGround = true;
-                }
-            }
-        }
-        // action when the snow flake is starting to melt
-        startMelting(ms = this.meltSpeed) {
-            if(!this.isMelting) {
-                this.isMelting = true;
-                setTimeout( () => {
-                    this.isMelted = true;
-                }, this.meltSpeed);
-            }
-        }
-        setGravity(g) {
-            this.g = g;
-        }
-        setSize(size) {
-            this.size = size;
-        }
-        setMeltingSpeed(ms) {
-            this.meltSpeed = ms;
-        }
-    }
-</script>
 </body>
 </html>
