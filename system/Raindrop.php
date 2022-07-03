@@ -101,6 +101,7 @@ class Raindrop {
         return False;
       }
       $controller->$method();
+      return True;
     }
     return False;
   }
