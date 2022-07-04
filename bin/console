@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file this file is the entry point for the raindrop cli.
+ */
+
+// when no arguments passed execute help script
+if($argc <= 1) {
+  include_once 'help.php';
+  exit();
+}
+
+// a testing switch for some commands.
+switch($argv[1]) {
+  case 'help':
+    include_once 'help.php';
+    exit();
+    break;
+  case 'make:controller':
+    include_once 'make/controller.php';
+    makeController($argv);
+    exit();
+    break;
+  default:
+    include_once 'unknown.php';
+    exit();
+    break;
+}
