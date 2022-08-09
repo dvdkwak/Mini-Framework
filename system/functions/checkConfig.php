@@ -18,7 +18,7 @@ function checkConfig() {
 define("DIRECTORY", "' . $_POST['rootFolder'] . '");
 
 // defining the folder in which the assets are stored
-define("ASSETS_DIR", "assets");
+define("PUBLIC_DIR", "public");
 
 // if you want to be able to see php errors set this one to true (otherwise false of course)
 define("DEBUGMODE", true);';

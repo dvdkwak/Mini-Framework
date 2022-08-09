@@ -1,8 +1,12 @@
 
 Options -Indexes
 
+ErrorDocument 403 /index.php?url=403
+ErrorDocument 404 /index.php?url=404
+
 RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !public
+RewriteCond %{REQUEST_URI} !=/index.php
 
 RewriteRule ^(.*)$ index.php?url=$1

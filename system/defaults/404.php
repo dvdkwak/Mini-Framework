@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"
           type="image/png"
-          href="<?= Raindrop::asset("../system/defaults/favicon.png"); ?>">
+          href="<?= Raindrop::public("../system/defaults/favicon.png"); ?>">
     <title>Splash!</title>
     <style>
         body {
