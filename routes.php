@@ -8,6 +8,6 @@
  */
 
 // Start editing here! :D (uncomment the line below)
-// $route->add('rain', 'example.php');
+// $route->add('rain', 'example:entry');
 
 // _________________________________________________________________________

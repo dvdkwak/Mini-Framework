@@ -5,8 +5,8 @@
  */
 
 // Including the main configuration file
-include_once "system/config/config.php";
-$route = new Route;
+include_once "Raindrop/config/config.php";
+$route = new Raindrop\src\Route;
 
 // including all routes
 include_once ROOT . "routes.php";

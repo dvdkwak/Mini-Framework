@@ -8,20 +8,42 @@ function makeController($argv) {
     echo "No controller name has been given...\n";
     exit();
   }
-  $controllerName = ucfirst($argv[2]);
-  $filename = $argv[2];
-  if(!file_exists(__DIR__ . "/../../controllers/{$filename}.php")) {
-    $controller = fopen(__DIR__ . "/../../controllers/{$filename}.php", "w");
-    $content = "<?php\n\n";
-    $content .= "use Raindrop\Controller;\n\n";
-    $content .= "class {$controllerName}Controller extends Controller {\n\n";
-    $content .= "  public function entry() {\n";
-    $content .= "    echo \"Hello World!\";\n";
-    $content .= "  }\n\n";
-    $content .= "}\n";
-    fwrite($controller, $content);
-    fclose($controller);
+  if($argv[2] == "example") { // Creation of the example controller.
+    $controllerName = ucfirst($argv[2]);
+    $filename = ucfirst($argv[2]) . 'Controller';
+    if(!file_exists(__DIR__ . "/../../controller/{$filename}.php")) {
+      $controller = fopen(__DIR__ . "/../../controller/{$filename}.php", "w");
+      $content = "<?php\n\n";
+      $content .= "namespace Controller;\n\n";
+      $content .= "use Raindrop\src\Controller;\n";
+      $content .= "use Raindrop;\n\n";
+      $content .= "class {$controllerName}Controller extends Controller {\n\n";
+      $content .= "  public function entry() {\n";
+      $content .= "    Raindrop::view('example.php');\n";
+      $content .= "  }\n\n";
+      $content .= "}\n";
+      fwrite($controller, $content);
+      fclose($controller);
+    } else {
+      echo "This controller already seems to exist... \n";
+    }
   } else {
-    echo "This controller already seems to exist... \n";
+    $controllerName = ucfirst($argv[2]);
+    $filename = ucfirst($argv[2]) . 'Controller';
+    if(!file_exists(__DIR__ . "/../../controller/{$filename}.php")) {
+      $controller = fopen(__DIR__ . "/../../controller/{$filename}.php", "w");
+      $content = "<?php\n\n";
+      $content .= "namespace Controller;\n\n";
+      $content .= "use Raindrop\src\Controller;\n\n";
+      $content .= "class {$controllerName}Controller extends Controller {\n\n";
+      $content .= "  public function entry() {\n";
+      $content .= "    echo \"Hello World!\";\n";
+      $content .= "  }\n\n";
+      $content .= "}\n";
+      fwrite($controller, $content);
+      fclose($controller);
+    } else {
+      echo "This controller already seems to exist... \n";
+    }
   }
 }

@@ -1,6 +1,10 @@
 <?php
 
-use Raindrop\Default\DefaultController;
+/**
+ * @file Main object of the framework, this is where most of the logic starts.
+ */
+
+use Raindrop\src\DefaultController;
 
 class Raindrop {
 
@@ -31,7 +35,8 @@ class Raindrop {
       }
       $defaultController->$method();
     }
-  }
+  } // end of handleResponse
+
 
   /**
    * This function will return a link which can be used to get items from the public folder
@@ -46,7 +51,7 @@ class Raindrop {
       $link = "/" . DIRECTORY . "/" . PUBLIC_DIR . "/" . $link;
     }
     return $link;
-  }
+  } // end of public
 
 
   /**
@@ -56,7 +61,7 @@ class Raindrop {
    * @return string
    */
   public static function view($link, $data = False, $linkOnly = False) {
-    $link = ROOT . "views/" . $link;
+    $link = ROOT . "view/" . $link;
     if($linkOnly) {
       return $link;
     }
@@ -64,7 +69,7 @@ class Raindrop {
       unset($data);
     }
     include_once $link;
-  }
+  } // end of view
 
 
   /**
@@ -81,7 +86,7 @@ class Raindrop {
     if($controllerName === "default") {
       return False;
     } else {
-      $controllerPath = ROOT . "controllers/" . $controllerName . ".php";
+      $controllerPath = ROOT . "Controller/" . ucfirst($controllerName) . "Controller.php";
     }
     // Including the controller and calling the given method.
     if(!file_exists($controllerPath)) {
@@ -92,7 +97,7 @@ class Raindrop {
       return $controllerPath;
     }
     include_once $controllerPath;
-    $controllerName = ucfirst($controllerName) . "Controller";
+    $controllerName = '\\Controller\\' . ucfirst($controllerName) . "Controller";
     $controller = new $controllerName($response);
     if(count($explodedController) > 1) {
       $method = $explodedController[1];
@@ -104,6 +109,6 @@ class Raindrop {
       return True;
     }
     return False;
-  }
+  } // end of controller
 
-}
+} // end of class

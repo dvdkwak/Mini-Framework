@@ -7,7 +7,7 @@
     <title>Rain Drop</title>
     <link rel="icon"
           type="image/png"
-          href="/system/defaults/favicon.png">
+          href="/Raindrop/defaults/favicon.png">
     <style>
     body {
         margin: 0;
