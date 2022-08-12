@@ -3,8 +3,6 @@
 Hey there! awesome you have some interest in my framework little project!
 This framework was originally built in order to learn something about the mvc method which later grew into a package I use to create small php webapps. And this even is version 2 already!
 
-***[Mind: still beta!]***
-
 **The routes.php file**
 
 Within the routes.php you define which routes should be claimed by the application.
@@ -22,7 +20,6 @@ The path is a string telling the system on which uri the content should be loade
 
 ## Planned and notes
 - Rewriting default Example.php
-- Rewriting Controllers to let the filename match the classname. (So we can make unittest work etc.)
 - implementing a singleton pattern for the routes object.
 - creation of 'bin' folder which will contain some functions to:
   - create controllers
