@@ -1,24 +1,31 @@
 # Mini-Framework by David
-### ***V 1.0.0***
+### ***V 2.0.0***
 Hey there! awesome you have some interest in my framework little project!
-This framework was originally built in order to learn something about the mvc method which later grew into a package I use to create small php webapps.
+This framework was originally built in order to learn something about the mvc method which later grew into a package I use to create small php webapps. And this even is version 2 already!
 
-**The index.php & creating routes**
+***[Mind: still beta!]***
 
-Within the index.php you define which routes should be claimed by the application.
-Routes are defined as follows:
+**The routes.php file**
+
+Within the routes.php you define which routes should be claimed by the application.
+Routes are defined the following:
 
 ```php
-route->add('path', 'view', 'controller');
+$route->add('path', 'controller');
 ```
 
-The path is a string telling the system on which uri the content should be loaded, the view is the main html (or php) file to be loaded as "view", and the controller is the main file executing all the commands given in it.
+The path is a string telling the system on which uri the content should be loaded and the controller is the main class which should be handled as a certain route is called.
 
-**The package has 3 main folders you want to put your code (php) in:**
+**The package has 2 main folders you want to put your code (php) in:**
 1. **views:** In this folder you put the layouts of your application.
-2. **models:** In this folder you put the models (or classes) of your application.
-3. **controllers:** In this folder you put the controllers (processing files) of your application.
+2. **controllers:** In this folder you put the controller classes of your application which handle what view to return and more.
 
 ## Planned and notes
-- Page to help set-up the mini-framework
-  - You start the installation with errors, on which actually should be a help page to help setup the config file
+- Rewriting default Example.php
+- Rewriting Controllers to let the filename match the classname. (So we can make unittest work etc.)
+- implementing a singleton pattern for the routes object.
+- creation of 'bin' folder which will contain some functions to:
+  - create controllers
+  - create basic views
+  - and more in the future!
+- Refreshing the 'rain' route, or example page to give some tips.

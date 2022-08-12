@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon"
           type="image/png"
-          href="<?= asset("../system/defaults/favicon.png"); ?>">
+          href="<?= Raindrop::public("../system/defaults/favicon.png"); ?>">
     <title>Rain Drop</title>
     <style>
         body {
@@ -71,6 +71,7 @@
             right: 0;
             padding: 5px 15px;
             overflow-y: scroll;
+            box-shadow: -5px 0 10px 5px rgba(0, 0, 0, 0.3);
         }
         p.codeblock {
             display: block;
@@ -90,6 +91,19 @@
         }
         h3 {
             margin-top: 50px;
+        }
+        .quickstart {
+            background: #29a2ff;
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
+        a.rain {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
         }
         @keyframes shadowResize {
             0% {
@@ -137,31 +151,65 @@
 </div>
 <!-- a bar with some rain on the right -->
 <sidebar class="right">
-    <h1>Short Refference:</h1>
-    <h3>1. Routes:</h3>
+    <h1>Quick Start</h1>
+    <div class="quickstart">
+        <h3>1. Uncommend the example route in routes.php</h3>
+        <p class="codeblock">
+            <span class="green">// Start editing here! :D (uncomment the line below)</span>
+            <br>
+            $route-><span class="yellow">add</span>(<span class="green">'rain', 'example:entry'</span>);
+        </p>
+        <h3>2. Generate the example controller</h3>
+        <p class="codeblock">
+            <span class="purple">someone@a-pc folder %</span> php bin/console make:controller example
+        </p>
+        <h3>3. Enjoy!</h3>
+        <p>
+            Navigate to: <a class="rain" href="rain">/rain</a>
+        </p>
+    </div>
+    <h1>Short Refference</h1>
+    <h3>1. Routes</h3>
     <p>
-        A route is a claimed uri-path within the framework. Routes are built by a uri, view and a controller, and looks like this:
+        A route is a claimed uri-path within the framework. Routes are built by an uri and a controller, and looks like this:
     </p>
     <p class="codeblock">
-        <span class="purple">$route</span>-><span class="yellow">add</span>(<span class="green">'uri'</span>, <span class="green">'view'</span>, <span class="green">'controller'</span>);
+       $route-><span class="yellow">add</span>(<span class="green">'uri'</span>, <span class="green">'controller:entryMethod'</span>);
     </p>
     <p>
-        Routes are defined in <b>routes.php</b>, which should never be removed.
+        The controller exists of 2 parts: <i>controller</i> and <i>entryMethod</i>. Controller is the name of the controller, and entryMethod is the method which should be called on the request.
+        <br><br>Routes are defined in <b>routes.php</b>, which should never be removed.
     </p>
-    <h3>2. Views:</h3>
+    <h3>2. Controllers</h3>
+    <p>
+        Controllers are the main files in which the processing takes place. In here you initialize all of your php code and functionality.
+        They should extend the Controller class which is supplied by the system.
+    </p>
+    <p class="codeblock">
+        <span class="purple">namespace</span> Controller;
+        <br><br>
+        <span class="purple">use</span> Raindrop\src\<span class="green">Controller</span>;
+        <br><br>
+        <span class="purple">class</span> <span class="green">HelloController</span> <span class="purple">extends</span> <span class="green">Controller</span> {
+        <br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">public function</span> <span class="yellow">entryMethod</span>() {
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">echo</span> <span class="green">"Hello World"</span>;
+        <br><br>&nbsp;&nbsp;&nbsp;&nbsp;}
+        <br><br>}
+    </p>
+    <h3>3. Views</h3>
     <p>
         Views are the templates of your application. Views are stored in the "views" folder and are used to display content.
+        <br>To retrieve such a view, you can make use of the <b>view</b> method.
+        <p class="codeblock">
+            <span class="green">Raindrop</span>::<span class="yellow">view</span>(<span class="green">'myView.php'</span>);
+        </p>
         <br>
         <br>
         <i><b>Tip:</b> You can use views as php files to include "template parts" by using the php <b>include_once</b> function!</i>
     </p>
-    <h3>3. Controllers:</h3>
+    <h3>4. Raindrop</h3>
     <p>
-        Controllers are the main files in which the processing takes place. In here you initialize all of your php code and functionality.
-    </p>
-    <h3>4. System:</h3>
-    <p>
-        System is a folder in which the framework itself lives. you should try to <b>never change something</b> there unless you know what you are doing!
+        Raindrop is a folder in which the framework itself lives. you should try to <b>never change something</b> there unless you know what you are doing!
     </p>
 </sidebar>
 </body>
