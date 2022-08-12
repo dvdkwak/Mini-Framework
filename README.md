@@ -1,4 +1,4 @@
-# Mini-Framework by David
+# Raindrop
 ### ***V 2.0.0***
 Hey there! awesome you have some interest in my framework little project!
 This framework was originally built in order to learn something about the mvc method which later grew into a package I use to create small php webapps. And this even is version 2 already!
