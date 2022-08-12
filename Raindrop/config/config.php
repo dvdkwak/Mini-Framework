@@ -24,7 +24,7 @@ checkConfig();
 // path is directly to config because this file is included to the index as well
 include_once "config.php";
 
-// Defining the root folder
+// Defining the root folder.
 $root = $_SERVER['DOCUMENT_ROOT'];
 if(!empty(DIRECTORY) && DIRECTORY !== "/") {
   $root .= "/" . DIRECTORY . "/";

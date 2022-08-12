@@ -90,7 +90,7 @@ class Route
       }
     }
     // When no key is set give the standard 404 error, but first we need to check if there is a user-made one (so in the views folder a 404.php)
-    if(file_exists(ROOT . 'controllers/404.php')) {
+    if(file_exists(ROOT . 'controller/404.php')) {
       $data = array(
         'route' => '404',
         'controller' => 'default:error'

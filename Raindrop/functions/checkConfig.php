@@ -23,8 +23,8 @@ define("PUBLIC_DIR", "public");
 // if you want to be able to see php errors set this one to true. (Otherwise false of course.)
 define("DEBUGMODE", true);
 
-// Set the project name, your own namespaces should start with this name.
-define("PROJECT_NAME", "App");
+// Port to serve the development server on.
+define("SERVER_PORT", "8000");
 ';
       fwrite($configFile, $config);
       fclose($configFile);

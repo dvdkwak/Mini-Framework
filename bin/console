@@ -21,6 +21,9 @@ switch($argv[1]) {
     makeController($argv);
     exit();
     break;
+  case 'server:start':
+    include_once 'server/start.php';
+    break;
   default:
     include_once 'unknown.php';
     exit();
