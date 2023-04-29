@@ -8,7 +8,7 @@ namespace Raindrop\src;
 
 class Controller {
 
-  private $response;
+  protected $response;
 
   public function __construct($response) {
     $this->response = $response;

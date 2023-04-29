@@ -20,6 +20,7 @@ The path is a string telling the system on which uri the content should be loade
 
 ## Planned and notes
 - Rewriting default Example.php
+- Clean error messages.
 - implementing a singleton pattern for the routes object.
 - creation of 'bin' folder which will contain some functions to:
   - create controllers
