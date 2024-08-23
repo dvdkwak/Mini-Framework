@@ -19,11 +19,7 @@ The path is a string telling the system on which uri the content should be loade
 2. **controllers:** In this folder you put the controller classes of your application which handle what view to return and more.
 
 ## Planned and notes
-- Clean error messages.
-- implementing a singleton pattern for the routes object.
 - creation of 'bin' folder which will contain some functions to:
   - create controllers
-  - create basic views
   - and more in the future!
-- Refreshing the 'rain' route, or example page to give some tips.
 - Rewriting the console scripts, into two steps. make:controller 'make' would be step one and 'controller' step two.
